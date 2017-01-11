@@ -14,15 +14,15 @@ public class Game{
     // 	System.out.println(ret);
     // }
 
-    protected void swap(int a, int b){
-        String c = _deck[a];
-	_deck[a] = _deck[b];
-	_deck[b] = c;
+    protected void swap(String[] s, int a, int b){
+        String c = s[a];
+	s[a] = s[b];
+	s[b] = c;
     }
 
     protected void shuffle(){
 	for (int x = 0; x < 1000; x += 1){
-	    swap((int)(Math.random() * 52), (int)(Math.random() * 52));
+	    swap(_deck,(int)(Math.random() * 52), (int)(Math.random() * 52));
 	}
     }
 

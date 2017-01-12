@@ -1,0 +1,52 @@
+Casino Royale
+Michael Ruvinshteyn
+Andrew Qu
+Leo Liu
+pd 1
+---------------------
+Casino Royale
+
+/////////// Zone of Reflection \\\\\\\\\\\
+------------------------------------------
+OBSTACLES OVERCOME
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We finally managed to organize who would create which files.
+
+UNRESOLVED ISSUES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We haven't completely fleshed out the components of each class, as we did not expect such difficulty with the relatively 
+small amount of concepts we planned to implement with the UML diagram.
+
+COOL STUFF LEARNED
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We learned how much more complex a few simple casino games would be to code. Each game is so different from the others,
+which makes coding a template for all games next to impossible.
+
+MID-DEVELOPMENT DESIGN CHANGES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We added a Player class, which will keep track of money, winning and losing streaks, and bets, in order to prevent clutter
+in the Game class.
+
+LESSONS LEARNED
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We learned that sometimes, making more classes can be much more useful than having all major methods in one class. This would
+prevent a lot of clutter that we may have if we tried to shove all methods into a single superclass.
+
+
+
+ ______   ______   __   __   __       ______   _______     
+/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
+\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__  
+ \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\ 
+  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/ 
+   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
+    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
+==============================================================
+
+
+2017 - 01 - 11
+--------------------------------------------------------------
+Michael :: Created the Player class, updated Slots.class (still incomplete)
+Leo :: Created Roulette.class (still incomplete)
+Andrew :: Created Blackjack.class (still incomplete)
+==============================================================

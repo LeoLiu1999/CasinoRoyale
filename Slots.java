@@ -23,6 +23,13 @@ public class Slots extends Game{
     }
 
     public static void main(String[] args){
-
+	
+	System.out.println("Welcome to our state-of-the-art Slot Machine! How much would you like to bet?");
+        double numBet = Keyboard.readDouble();
+	while (numBet <= 0){
+	    System.out.println("I'm sorry, that value is invalid, try again.");
+	    numBet = Keyboard.readDouble();
+	}
+	spin();
     }
 }

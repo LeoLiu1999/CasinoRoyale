@@ -1,3 +1,5 @@
+import cs1.Keyboard;
+
 public class Slots extends Game{
 
     private String[] slot1 = {"peach","pear","cherry","grapefruit","orange","pomegranate"};
@@ -13,5 +15,21 @@ public class Slots extends Game{
     }
 
     public boolean miniWin(){
-	return ((!(slot1[0].equals(slot2[0])) && !(slot2[0].equals(slot3[0]))) && !(slot1[0].equals(slot3[0])))
+	return (((!(slot1[0].equals(slot2[0])) && !(slot2[0].equals(slot3[0]))) && !(slot1[0].equals(slot3[0]))) || jackpot());
+    }
+
+    public boolean jackpot(){
+	return ((slot1[0].equals(slot2[0])) && (slot1[0].equals(slot3[0])));
+    }
+
+    public static void main(String[] args){
+	
+	System.out.println("Welcome to our state-of-the-art Slot Machine! How much would you like to bet?");
+        double numBet = Keyboard.readDouble();
+	while (numBet <= 0){
+	    System.out.println("I'm sorry, that value is invalid, try again.");
+	    numBet = Keyboard.readDouble();
+	}
+	spin();
+    }
 }

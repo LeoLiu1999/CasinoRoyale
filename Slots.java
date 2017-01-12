@@ -1,3 +1,5 @@
+import cs1.Keyboard;
+
 public class Slots extends Game{
 
     private String[] slot1 = {"peach","pear","cherry","grapefruit","orange","pomegranate"};
@@ -13,5 +15,14 @@ public class Slots extends Game{
     }
 
     public boolean miniWin(){
-	return ((!(slot1[0].equals(slot2[0])) && !(slot2[0].equals(slot3[0]))) && !(slot1[0].equals(slot3[0])))
+	return (((!(slot1[0].equals(slot2[0])) && !(slot2[0].equals(slot3[0]))) && !(slot1[0].equals(slot3[0]))) || jackpot());
+    }
+
+    public boolean jackpot(){
+	return ((slot1[0].equals(slot2[0])) && (slot1[0].equals(slot3[0])));
+    }
+
+    public static void main(String[] args){
+
+    }
 }

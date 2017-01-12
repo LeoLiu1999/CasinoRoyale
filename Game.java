@@ -14,6 +14,10 @@ public class Game{
     // 	System.out.println(ret);
     // }
 
+    protected void setBet(double amt){
+	_bet = amt;
+    }
+
     protected void swap(String[] s, int a, int b){
         String c = s[a];
 	s[a] = s[b];

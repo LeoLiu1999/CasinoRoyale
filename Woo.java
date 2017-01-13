@@ -81,6 +81,7 @@ public class Woo{
 		}
 	    }
 
+		
 	    //User bets on a COLOR
 	    //==================================
 	    String USERCOLORBET = "";
@@ -101,10 +102,12 @@ public class Woo{
 	/*============================================
 	  Blackjack
 	  ============================================*/
-	Player mikey = new Player("mikey",100);
-	Blackjack bj = new Blackjack();
-	bj.Go(mikey);
-	/*============================================
+	if (choice.equals("3")){
+		Player mikey = new Player("mikey",100);
+		Blackjack bj = new Blackjack();
+		bj.Go(mikey);
+	}	
+/*============================================
 	  End of Blackjack
 	  ============================================*/
     }

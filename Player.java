@@ -18,13 +18,15 @@ public class Player{
 	return _bal;
     }
 
-    public void win(){
+    public void win(double x){
 	_winStreak += 1;
 	_loseStreak = 0;
+	_bal += x;
     }
 
-    public void lose(){
+    public void lose(double x){
 	_loseStreak += 1;
 	_winStreak = 0;
+	_bal -= x;
     }
 }

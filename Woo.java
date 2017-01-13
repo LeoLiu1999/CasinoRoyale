@@ -45,7 +45,7 @@ public class Woo{
 		System.out.println("Which number would you like to bet on? 00, 0, 1, 2, ..., 36" );
 		USERNUMBET = Keyboard.readString();
 		if (Roulette.winNumber( USERNUMBET)){
-		    System.out.println("You won " +"ENTER BET" + " dollars!" );
+		    System.out.println("You won " +"ENTER BET AMOUNT HERE" + " dollars!" );
 		} else {
 		    System.out.println("You lost...");
 		}

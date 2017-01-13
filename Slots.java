@@ -22,7 +22,16 @@ public class Slots extends Game{
 	return ((slot1[0].equals(slot2[0])) && (slot1[0].equals(slot3[0])));
     }
 
-    public void main(String[] args){
+    public void win(){
+	System.out.println( "You won " + "ENTER BET AMOUNT HERE" + "dollars!");
+    }
+
+    public void lose(){
+	System.out.println( "You lost...");
+    }
+
+    public static void main(String[] args){
+	Slots Player = new Slots();
 	
 	System.out.println("Welcome to our state-of-the-art Slot Machine! How much would you like to bet?");
         double numBet = Keyboard.readDouble();
@@ -30,9 +39,10 @@ public class Slots extends Game{
 	    System.out.println("I'm sorry, that value is invalid, try again.");
 	    numBet = Keyboard.readDouble();
 	}
-	spin();
+	
+	Player.spin();
 
-	if (jackpot() || miniWin()){
+	if (Player.jackpot() || Player.miniWin()){
 	    Player.win();
 	}
 	else{

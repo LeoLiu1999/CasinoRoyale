@@ -2,18 +2,28 @@ import cs1.Keyboard;
 
 public class Woo{
     public static void main(String[] args){
-	Player player1;
-	Player player2;
-	Player player3;
-	Player player4;
 
-	System.out.println("Welcome to the Casino Royale! Which game would you like to play?");
+	System.out.print("Welcome to the Casino Royale! Please enter the name of Player 1: ");
+	String playerName = Keyboard.readString();
+	System.out.println();
+	System.out.print("Please enter your current balance, " + playerName + ":");
+	double playerBal = Keyboard.readDouble();
+	Player player1 = new Player(playerName, playerBal);
+
+	System.out.println();
+	System.out.print("Now please enter the name of Player 2: ");
+	playerName = Keyboard.readString();
+	System.out.println();
+	System.out.print("Please enter your current balance, " + playerName + ":");
+	playerBal = Keyboard.readDouble();
+	Player player2 = new Player(playerName, playerBal);
+	
 	// System.out.println("Welcome to the Casino Royale! How many people are in your group? (Between 2 and 4 please)");
 
 	// String amount = Keyboard.readString();
 	// int players;
-	String playerName;
-	double playerBal;
+	// String playerName;
+	// double playerBal;
 	// while (true){
 	//     boolean turnOff = false;
 	//     switch (amount){

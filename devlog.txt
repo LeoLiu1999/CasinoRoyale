@@ -50,3 +50,10 @@ Michael :: Created the Player class, updated Slots.class (still incomplete)
 Leo :: Created Roulette.class (still incomplete)
 Andrew :: Created Blackjack.class (still incomplete)
 ==============================================================
+
+2017 - 01 - 12
+--------------------------------------------------------------
+Michael :: Updated Player.java, removed functionality of Game.java (until further notice), Updated Woo.java to accept player information
+Leo :: Updated Woo.java to run the three games
+Andrew :: Completed Blackjack
+==============================================================

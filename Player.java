@@ -15,12 +15,12 @@ public abstract class Player{
 	_bal = newBal;
     }
 
-    protected win(){
+    protected void win(){
 	_winStreak += 1;
 	_loseStreak = 0;
     }
 
-    protected lose(){
+    protected void lose(){
 	_loseStreak += 1;
 	_winStreak = 0;
     }

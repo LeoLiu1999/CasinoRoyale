@@ -22,7 +22,7 @@ public class Slots extends Game{
 	return ((slot1[0].equals(slot2[0])) && (slot1[0].equals(slot3[0])));
     }
 
-    public static void main(String[] args){
+    public void main(String[] args){
 	
 	System.out.println("Welcome to our state-of-the-art Slot Machine! How much would you like to bet?");
         double numBet = Keyboard.readDouble();
@@ -31,5 +31,12 @@ public class Slots extends Game{
 	    numBet = Keyboard.readDouble();
 	}
 	spin();
+
+	if (jackpot() || miniWin()){
+	    Player.win();
+	}
+	else{
+	    Player.lose();
+	}
     }
 }

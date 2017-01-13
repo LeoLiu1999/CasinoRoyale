@@ -25,6 +25,33 @@ public class Woo{
 	    choice = Keyboard.readString();
 	}
 
+	/*============================================
+	  Slots
+	  ============================================*/
+	if (choice.equals("1")){
+	    Slots Player = new Slots();
+	
+	    System.out.println("Welcome to our state-of-the-art Slot Machine! How much would you like to bet?");
+	    double numBet = Keyboard.readDouble();
+	    while (numBet <= 0){
+		System.out.println("I'm sorry, that value is invalid, try again.");
+		numBet = Keyboard.readDouble();
+	    }
+	
+	    Player.spin();
+
+	
+	    if (Player.jackpot()){
+		Slots.printJackpot(numBet);
+	    } else if(Player.miniWin()){
+		Slots.printMini(numBet);
+	    } else{
+		Player.lose();
+	    }
+	}
+	
+	    
+
 
 	/*============================================
 	  Roulette

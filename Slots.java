@@ -22,14 +22,18 @@ public class Slots extends Game{
 	return ((slot1[0].equals(slot2[0])) && (slot1[0].equals(slot3[0])));
     }
 
-    public void win(){
-	System.out.println( "You won " + "ENTER BET AMOUNT HERE" + "dollars!");
-    }
-
     public void lose(){
-	System.out.println( "You lost...");
+	System.out.println("You lost...");
     }
 
+    public static void printJackpot(double numBet){
+	System.out.println("JACKPOT!!!\nYou won " + (10 * numBet) + " dollars!");
+    }
+
+    public static void printMini(double numBet){
+	System.out.println("You won " + numBet + " dollars!");
+    }
+    
     public static void main(String[] args){
 	Slots Player = new Slots();
 	
@@ -42,11 +46,13 @@ public class Slots extends Game{
 	
 	Player.spin();
 
-	if (Player.jackpot() || Player.miniWin()){
-	    Player.win();
-	}
-	else{
+	
+	if (Player.jackpot()){
+	    printJackpot(numBet);
+	} else if(Player.miniWin()){
+	    printMini(numBet);
+	} else
 	    Player.lose();
-	}
     }
 }
+

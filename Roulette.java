@@ -24,7 +24,6 @@ public class Roulette extends Game{
     }
     
     public static void main(String[] args){
-	Roulette wheel1 = new Roulette();
 	
 	//double bet = setBet();
 	int numOrColor = 0;

@@ -1,26 +1,29 @@
 import cs1.Keyboard;
 
-public abstract class Player{
+public class Player{
 
+    private String name;
     private double _bal;
     private int _winStreak;
     private int _loseStreak;
 
-    public Player(){
+    public Player(String newName, double newBal){
 	_winStreak = 0;
 	_loseStreak = 0;
-    }
-
-    protected void setBal(double newBal){
+	name = newName;
 	_bal = newBal;
     }
 
-    protected void win(){
+    public double checkBal(){
+	return _bal;
+    }
+
+    public void win(){
 	_winStreak += 1;
 	_loseStreak = 0;
     }
 
-    protected void lose(){
+    public void lose(){
 	_loseStreak += 1;
 	_winStreak = 0;
     }

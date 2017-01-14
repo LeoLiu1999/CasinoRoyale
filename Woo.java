@@ -6,7 +6,7 @@ public class Woo{
 	System.out.print("Welcome to the Casino Royale! What is your name? ");
 	String playerName = Keyboard.readString();
 	System.out.println();
-	System.out.print("Please enter your current balance, " + playerName + ":");
+	System.out.print("Please enter your current balance, " + playerName + ": ");
 	double playerBal = Keyboard.readDouble();
 	Player player = new Player(playerName, playerBal);
 
@@ -31,10 +31,10 @@ public class Woo{
 	if (choice.equals("1")){
 	    Slots Player = new Slots();
 	
-	    System.out.println("Welcome to our state-of-the-art Slot Machine! How much would you like to bet?");
+	    System.out.println("Welcome to our state-of-the-art Slot Machine! How much would you like to bet? ");
 	    double numBet = Keyboard.readDouble();
 	    while (numBet <= 0){
-		System.out.println("I'm sorry, that value is invalid, try again.");
+		System.out.println("I'm sorry, that value is invalid, try again. ");
 		numBet = Keyboard.readDouble();
 	    }
 	
@@ -64,7 +64,7 @@ public class Woo{
 	    //double bet = setBet();
 	    int numOrColor = 0;
 	    while (numOrColor != 2 && numOrColor != 1){
-		System.out.println("Would you like to bet on number(1) or color(2)?");
+		System.out.println("Would you like to bet on number(1) or color(2)? ");
 		numOrColor = Keyboard.readInt();
 	    }
 

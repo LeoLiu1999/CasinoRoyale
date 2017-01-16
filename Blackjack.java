@@ -6,14 +6,23 @@ public class Blackjack{
     final int[] nums = {1,2,3,4,5,6,7,8,9,10,11,12,13};
 
     private double _bal;
-    private double _bet = 0;
+    private double _bet;
     private int _playerTotal = 0;
     private int _dealerTotal = 0;
     private String[] _deck = new String[52];
 
+    public Blackjack(double x){
+	_bal = x;
+    }
+
     public void setBal(double x){
 	_bal = x;
     }
+
+    public double getBet(){
+	return _bet;
+    }
+    
     public void swap(String[] s, int a, int b){
         String c = s[a];
 	s[a] = s[b];
@@ -45,24 +54,19 @@ public class Blackjack{
 	for(int i = 1;i < _deck.length;i ++){
 	    d[i - 1] = _deck[i];
 	}
-	return Integer.parseInt(c.substring(1));
+	_deck = d;
+	int i = Integer.parseInt(c.substring(1));
+	if(i > 10){
+	    return 10;
+	}
+	else{
+	    return i;
+	}
     }
     
-    public void Go(Player x){
+    public boolean Play(){
 	createDeck();
-	System.out.println("You sit down at the blackjack table.");
-	Play(x);
-	System.out.print("Play again? Y or N");
-	if(Keyboard.readString().equals("Y")){
-	    Go(x);
-	}
-        else{
-	    return;
-	}
-	
-    }
-    
-    public void Play(Player x){
+	System.out.println("You sit down at the blackjack table");
 	System.out.print("Place your bet:");
 	//if( Keyboard.readDouble() > x._bal )	{
 	//    System.out.print("Insufficient funds, place a lower bet:");
@@ -74,37 +78,44 @@ public class Blackjack{
 	_playerTotal += drawCard();
 	_playerTotal += drawCard();
 	System.out.println(_playerTotal);
-	HitOrStand(x);
+	_playerTotal = HitOrStand(_playerTotal);
+	if(_playerTotal > 21){
+	    System.out.println("Player bust.");
+	    return false; //false if player bust
+	}
 	while(_dealerTotal < _playerTotal){
 	    _dealerTotal += drawCard();
+	    System.out.print("Dealer hits: ");
 	    System.out.println(_dealerTotal);
 	    if (_dealerTotal > 21){
-		System.out.println("Dealer bust. You win.");
-		x.win(_bet);
-		return;
+		System.out.println("Dealer bust.");
+		return true;
 	    }
 	}
-	System.out.println("You lost.");
-	x.lose(_bet);
+	System.out.println("Dealer wins.");
+	return false;
     }
 
-    public void HitOrStand(Player x){
+    public int HitOrStand(int i){ //simulates player's turn
+	int x = i;
+	
 	System.out.println("Hit or stand?");
 	System.out.println("1: Hit");
 	System.out.println("2: Stand");
+	
 	if(Keyboard.readInt() == 1){
-	    _playerTotal += drawCard();
-	    System.out.println(_playerTotal);
-	    if(_playerTotal > 21){
-		x.lose(_bet);
-		return;
+	    x += drawCard();
+	    System.out.println(x);
+	    if(x > 21){
+		return x;
 	    }
 	    else{
 		HitOrStand(x);
 	    }
 	}
 	else{
-	    return;
+	    return x;
 	}
+	return x; //to get past compiler
     }	
 }

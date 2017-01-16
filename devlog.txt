@@ -57,3 +57,7 @@ Michael :: Updated Player.java, removed functionality of Game.java (until furthe
 Leo :: Updated Woo.java to run the three games
 Andrew :: Completed Blackjack
 ==============================================================
+
+2017 - 01 - 16
+--------------------------------------------------------------
+Andrew :: Added constructor to Blackjack() that will take the player's balance as input. Fixed bugs in drawCard() and Play(). Play() now returns a boolean, changes to player's balance are made in Woo.java rather than Blackjack.java.

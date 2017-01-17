@@ -6,7 +6,7 @@ public class Woo{
 	System.out.print("Welcome to the Casino Royale! What is your name? ");
 	String playerName = Keyboard.readString();
 	System.out.println();
-	System.out.print("Please enter your current balance, " + playerName + ":");
+	System.out.print("Please enter your current balance, " + playerName + ": ");
 	double playerBal = Keyboard.readDouble();
 	Player player = new Player(playerName, playerBal);
 
@@ -98,17 +98,19 @@ public class Woo{
 	  End of Roulette
 	  ============================================*/
 
+	
 	/*============================================
 	  Blackjack
 	  ============================================*/
-	Blackjack bj = new Blackjack(playerBal);
-	if(bj.Play()){
-	    player.win(bj.getBet());
+	if(choice.equals("3")){
+	    Blackjack bj = new Blackjack(playerBal);
+	    if(bj.Play()){
+		player.win(bj.getBet());
+	    }
+	    else{
+		player.lose(bj.getBet());
+	    }
 	}
-	else{
-	    player.lose(bj.getBet());
-	}
-	
 	/*============================================
 	  End of Blackjack
 	  ============================================*/

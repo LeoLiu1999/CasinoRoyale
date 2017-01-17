@@ -14,8 +14,9 @@ public class Player{
 	_bal = newBal;
     }
 
-    public double checkBal(){
-	return _bal;
+    public void checkBal(){
+	System.out.println("Name: " + name + ";\n" +
+			   "Balance: " + _bal + ";");
     }
 
     public void win(double x){

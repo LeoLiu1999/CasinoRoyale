@@ -22,11 +22,13 @@ public class Player{
 	_winStreak += 1;
 	_loseStreak = 0;
 	_bal += x;
+	System.out.println("You won " + x + " dollars. Your balance is now " + _bal + " dollars.");
     }
 
     public void lose(double x){
 	_loseStreak += 1;
 	_winStreak = 0;
 	_bal -= x;
+	System.out.println("You lost " + x + " dollars. Your balance is now " + _bal + " dollars.");
     }
 }

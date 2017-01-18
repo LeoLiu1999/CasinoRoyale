@@ -92,7 +92,7 @@ public class Woo{
 			    betAmt = Keyboard.readDouble();
 			}
 			if (Roulette.winNumber( USERNUMBET)){
-			    System.out.println("You won " + betAmt + " dollars!" );
+			    System.out.println("You won " + betAmt * 35 + " dollars!" );
 			    player.win(betAmt);
 			}
 			else {
@@ -111,11 +111,15 @@ public class Woo{
 
 			while((!USERCOLORBET.equals("r")) && (!USERCOLORBET.equals("b")) && (!USERCOLORBET.equals("g"))){
 			    System.out.print("I'm sorry, that value is invalid. Please try again: ");
-			    choice = Keyboard.readString();
+			    USERCOLORBET = Keyboard.readString();
 			}
 			
 			if (Roulette.winColor(USERCOLORBET)){
-			    System.out.println("You won " + betAmt + " dollars!");
+			    if(USERCOLORBET.equals("g")){
+				System.out.println("You won " + betAmt * 17 + " dollars!");
+			    } else {
+				System.out.println("You won " + betAmt + " dollars!");
+			    }
 			} else {
 			    System.out.println("You lost...");
 			}

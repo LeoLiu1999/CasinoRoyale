@@ -105,10 +105,17 @@ public class Woo{
 		    //==================================
 		    String USERCOLORBET = "";
 		    if (numOrColor == 2){
+			
 			System.out.println("Would you like to bet on red(r), black(b), or green(g)");
 			USERCOLORBET = Keyboard.readString();
+
+			while((!USERCOLORBET.equals("r")) && (!USERCOLORBET.equals("b")) && (!USERCOLORBET.equals("g"))){
+			    System.out.print("I'm sorry, that value is invalid. Please try again: ");
+			    choice = Keyboard.readString();
+			}
+			
 			if (Roulette.winColor(USERCOLORBET)){
-			    System.out.println("You won " + "ENTER BET AMOUNT HERE" + " dollars!");
+			    System.out.println("You won " + betAmt + " dollars!");
 			} else {
 			    System.out.println("You lost...");
 			}

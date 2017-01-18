@@ -10,6 +10,7 @@ public class Blackjack{
     private int _playerTotal = 0;
     private int _dealerTotal = 0;
     private String[] _deck = new String[52];
+    private boolean _countCards = false;
 
     public Blackjack(double x){
 	_bal = x;
@@ -63,10 +64,25 @@ public class Blackjack{
 	    return i;
 	}
     }
+
+    public void countCards(){
+	if(Keyboard.readString().equals("Y")){
+	    _countCards = true;
+	}
+	else if(Keyboard.readString().equals("N")){
+	    _countCards = false;
+	}
+	else{
+	    System.out.println("Invalid input. Would you like to count cards?");
+	    countCards();
+	}
+    }
     
     public boolean Play(){
 	createDeck();
 	System.out.println("You sit down at the blackjack table");
+	System.out.print("Would you like to count cards? You risk getting caught...  Y or N");
+	countCards();		
 	System.out.print("Place your bet:");
 	//if( Keyboard.readDouble() > x._bal )	{
 	//    System.out.print("Insufficient funds, place a lower bet:");

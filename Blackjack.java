@@ -110,12 +110,11 @@ public class Blackjack{
 		return x;
 	    }
 	    else{
-		HitOrStand(x);
+		return HitOrStand(x);
 	    }
 	}
 	else{
 	    return x;
 	}
-	return x; //to get past compiler
     }	
 }

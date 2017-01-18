@@ -92,11 +92,9 @@ public class Woo{
 			    betAmt = Keyboard.readDouble();
 			}
 			if (Roulette.winNumber( USERNUMBET)){
-<<<<<<< HEAD
-=======
+
 			    System.out.println("You won " + betAmt * 35 + " dollars!" );
->>>>>>> 639f049cd3f659021e62657a28c2d918ccc8afbb
-			    player.win(betAmt);
+			    player.win(betAmt * 34);
 			}
 			else {
 			    player.lose(betAmt);
@@ -123,15 +121,12 @@ public class Woo{
 			}
 			
 			if (Roulette.winColor(USERCOLORBET)){
-<<<<<<< HEAD
 			    player.win(betAmt);
-=======
 			    if(USERCOLORBET.equals("g")){
 				System.out.println("You won " + betAmt * 17 + " dollars!");
 			    } else {
 				System.out.println("You won " + betAmt + " dollars!");
 			    }
->>>>>>> 639f049cd3f659021e62657a28c2d918ccc8afbb
 			} else {
 			    player.lose(betAmt);
 			}

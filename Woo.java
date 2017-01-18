@@ -75,8 +75,9 @@ public class Woo{
 		    }
 		    double betAmt = 0.00;
 		    while (!(betAmt > 0)){
-			System.out.println("Please input how much money you would like to bet");
+			System.out.print("Please input how much money you would like to bet: ");
 			betAmt = Keyboard.readDouble();
+			System.out.println();
 		    }
 
 		    //User bets on a NUMBER
@@ -92,8 +93,11 @@ public class Woo{
 			}
 			if (Roulette.winNumber( USERNUMBET)){
 			    System.out.println("You won " + betAmt + " dollars!" );
-			} else {
+			    player.win(betAmt);
+			}
+			else {
 			    System.out.println("You lost...");
+			    player.lose(betAmt);
 			}
 		    }
 

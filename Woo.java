@@ -130,8 +130,10 @@ public class Woo{
 			    player.win(betAmt);
 			    if(USERCOLORBET.equals("g")){
 				System.out.println("You won " + betAmt * 17 + " dollars!");
+				player.win(betAmt * 17);
 			    } else {
 				System.out.println("You won " + betAmt + " dollars!");
+				player.win(betAmt);
 			    }
 			} else {
 			    player.lose(betAmt);

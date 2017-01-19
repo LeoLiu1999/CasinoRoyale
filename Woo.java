@@ -6,13 +6,16 @@ public class Woo{
 	System.out.print("Welcome to the Casino Royale! What is your name? ");
 	String playerName = Keyboard.readString();
 	System.out.println();
-	System.out.print("Please enter your current balance, " + playerName + ": ");
+	System.out.print("Please enter your current balance, " + playerName + ": $");
 	double playerBal = Keyboard.readDouble();
+
 	Player player = new Player(playerName, playerBal);
 
 	System.out.println();
 	
 	while (true){
+	    System.out.println("CURRENT BALANCE: $" + player.checkBal());
+	    System.out.println();
 	    System.out.println("Which game would you like to play?");
 	    System.out.println("\t(1)Slots");
 	    System.out.println("\t(2)Roulette");
@@ -35,24 +38,27 @@ public class Woo{
 		  Slots
 		  ============================================*/
 		if (choice.equals("1")){
-		    Slots Player = new Slots();
+		    Slots machine = new Slots();
 		
-		    System.out.println("Welcome to our state-of-the-art Slot Machine! How much would you like to bet?");
+		    System.out.print("Welcome to our state-of-the-art Slot Machine! How much would you like to bet? ");
 		    double numBet = Keyboard.readDouble();
-		    while (numBet <= 0){
+		    while (numBet <= 0 || numBet > player.checkBal()){
 			System.out.println("I'm sorry, that value is invalid, try again.");
 			numBet = Keyboard.readDouble();
 		    }
 	
-		    Player.spin();
+		    machine.spin();
 
 	
-		    if (Player.jackpot()){
-			Slots.printJackpot(numBet);
-		    } else if(Player.miniWin()){
-			Slots.printMini(numBet);
-		    } else{
-			Player.lose();
+		    if (machine.jackpot()){
+		        System.out.println("JACKPOT");
+			player.win(numBet * 10);
+		    }
+		    else if(machine.miniWin()){
+		        player.win(numBet);
+		    } 
+		    else{
+			player.lose(numBet);
 		    }
 		}
 		/*============================================
@@ -156,6 +162,11 @@ public class Woo{
 		  ============================================*/
 
 		if(choice.equals("4")){
+		    return    ;
+		}
+
+		if (player.checkBal() <= 0){
+		    System.out.println("You're broke :c");
 		    return    ;
 		}
 	    

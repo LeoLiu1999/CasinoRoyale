@@ -24,39 +24,5 @@ public class Roulette extends Game{
     }
     
     public static void main(String[] args){
-	
-	//double bet = setBet();
-	int numOrColor = 0;
-	while (numOrColor != 2 && numOrColor != 1){
-	    System.out.println("Would you like to bet on number(1) or color(2)?");
-	    numOrColor = Keyboard.readInt();
-	}
-
-	//User bets on a NUMBER
-	//==================================
-	String USERNUMBET = "";
-	if (numOrColor == 1){
-	    System.out.println("Which number would you like to bet on? 00, 0, 1, 2, ..., 36" );
-	    USERNUMBET = Keyboard.readString();
-	    if (winNumber( USERNUMBET)){
-		System.out.println("You won " +"ENTER BET" + " dollars!" );
-	    } else {
-		System.out.println("You lost...");
-	    }
-	}
-
-	//User bets on a COLOR
-	//==================================
-	String USERCOLORBET = "";
-	if (numOrColor == 2){
-	    System.out.println("Would you like to bet on red(r), black(b), or green(g)");
-	    USERCOLORBET = Keyboard.readString();
-	    if (winColor(USERCOLORBET)){
-		System.out.println("You won " + "ENTER BET AMOUNT HERE" + " dollars!");
-	    } else {
-		System.out.println("You lost...");
-	    }
-	    
-	}
     }
 }

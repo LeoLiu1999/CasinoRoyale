@@ -11,6 +11,8 @@ public class Blackjack{
     private int _dealerTotal = 0;
     private String[] _deck = new String[52];
     private boolean _countCards = false;
+    private int[] _dealtCards = new int[nums.length];
+    //private int _dealtCardsIndex = 0;
 
     public Blackjack(double x){
 	_bal = x;
@@ -51,6 +53,7 @@ public class Blackjack{
 	    createDeck();
 	}
 	String c = _deck[0];
+	_dealtCards[Integer.parseInt(c.substring(1)) - 1] += 1;
 	String[] d = new String[_deck.length - 1];
 	for(int i = 1;i < _deck.length;i ++){
 	    d[i - 1] = _deck[i];
@@ -77,7 +80,12 @@ public class Blackjack{
 	    countCards();
 	}
     }
-    
+
+    public void printDealtCards(){
+	for(int i = 1;i <= _dealtCards.length;i++){
+	    System.out.print(i + "s:" + _dealtCards[i- 1] + "\t");
+	}
+    }
     public boolean Play(){
 	createDeck();
 	System.out.println("You sit down at the blackjack table");
@@ -94,6 +102,8 @@ public class Blackjack{
 	_playerTotal += drawCard();
 	_playerTotal += drawCard();
 	System.out.println(_playerTotal);
+	if(_countCards)
+	    printDealtCards();
 	_playerTotal = HitOrStand(_playerTotal);
 	if(_playerTotal > 21){
 	    System.out.println("Player bust.");

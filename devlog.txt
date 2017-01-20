@@ -67,3 +67,12 @@ Andrew :: Added constructor to Blackjack() that will take the player's balance a
 Michael :: Established base for README, added bet inputs for Roulette
 Andrew :: Bugfix for Blackjack.java in which game wouldn't end if the player's hand exceeded 21
 ==============================================================
+
+2017 - 01 - 19
+--------------------------------------------------------------
+Andrew :: Coding on Blackjack.java's card counting function started.
+==============================================================
+
+2017 - 01 - 20
+--------------------------------------------------------------
+Andrew :: Improved terminal output in Blackjack.java for communication with user. Card counting is functional but risk of being caught and thrown out of casino has yet to be coded.

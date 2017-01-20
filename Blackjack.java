@@ -82,14 +82,31 @@ public class Blackjack{
     }
 
     public void printDealtCards(){
-	for(int i = 1;i <= _dealtCards.length;i++){
-	    System.out.print(i + "s:" + _dealtCards[i- 1] + "\t");
+	System.out.println("Cards that have been dealt:");
+        for(int i = 0;i < _dealtCards.length;i ++){
+	    if(_dealtCards[i] > 0){
+		if(i == 0){
+		    System.out.print("Aces:" + _dealtCards[i] + "\t");
+		}
+		else if(i == 10){
+		    System.out.print("Jacks:" + _dealtCards[i] + "\t");
+		}
+		else if(i == 11){
+		    System.out.print("Queens:" + _dealtCards[i] + "\t");
+		}
+		else if(i == 12){
+		    System.out.print("Kings:" + _dealtCards[i] + "\t");
+		}
+		else{
+		    System.out.print( (i + 1) + "s:" +  _dealtCards[i] + "\t");
+		}
+	    }
 	}
     }
     public boolean Play(){
 	createDeck();
 	System.out.println("You sit down at the blackjack table");
-	System.out.print("Would you like to count cards? You risk getting caught...  Y or N");
+	System.out.print("Would you like to count cards? You risk getting caught...  Y or N: ");
 	countCards();		
 	System.out.print("Place your bet:");
 	//if( Keyboard.readDouble() > x._bal )	{
@@ -101,9 +118,10 @@ public class Blackjack{
 	_bet = Keyboard.readDouble();
 	_playerTotal += drawCard();
 	_playerTotal += drawCard();
+	System.out.println("You are dealt two cards...");
+	System.out.print("Current value of your hand:");
 	System.out.println(_playerTotal);
-	if(_countCards)
-	    printDealtCards();
+
 	_playerTotal = HitOrStand(_playerTotal);
 	if(_playerTotal > 21){
 	    System.out.println("Player bust.");
@@ -124,7 +142,9 @@ public class Blackjack{
 
     public int HitOrStand(int i){ //simulates player's turn
 	int x = i;
-	
+
+	if(_countCards)
+	    printDealtCards();	
 	System.out.println("Hit or stand?");
 	System.out.println("1: Hit");
 	System.out.println("2: Stand");

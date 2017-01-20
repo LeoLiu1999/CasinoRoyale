@@ -1,4 +1,5 @@
 import cs1.Keyboard;
+import java.util.ArrayList;
 
 public class Blackjack{
 
@@ -7,8 +8,8 @@ public class Blackjack{
 
     private double _bal;
     private double _bet;
-    private int _playerTotal = 0;
-    private int _dealerTotal = 0;
+    private ArrayList<Integer> _playersHand = new ArrayList<Integer>();
+    private ArrayList<Integer> _dealersHand = new ArrayList<Integer>(); 
     private String[] _deck = new String[52];
     private boolean _countCards = false;
     private int[] _dealtCards = new int[nums.length];
@@ -63,16 +64,27 @@ public class Blackjack{
 	if(i > 10){
 	    return 10;
 	}
+	else if(i == 1){
+	    return 11;
+	}
 	else{
 	    return i;
 	}
     }
+    
+    public int totalValue(ArrayList<Integer> a){
+	int ret = 0;
+	for(int i:a)
+	    ret += i;
+	return ret;
+    }
 
     public void countCards(){
-	if(Keyboard.readString().equals("Y")){
+	String in = Keyboard.readString();
+	if(in.equals("Y")){
 	    _countCards = true;
 	}
-	else if(Keyboard.readString().equals("N")){
+	else if(in.equals("N")){
 	    _countCards = false;
 	}
 	else{
@@ -116,22 +128,22 @@ public class Blackjack{
 	//    _bet = Keyboard.readDouble();
 	//}
 	_bet = Keyboard.readDouble();
-	_playerTotal += drawCard();
-	_playerTotal += drawCard();
+	_playersHand.add( drawCard() );
+	_playersHand.add( drawCard() );
 	System.out.println("You are dealt two cards...");
 	System.out.print("Current value of your hand:");
-	System.out.println(_playerTotal);
+	System.out.println(totalValue(_playersHand));
 
-	_playerTotal = HitOrStand(_playerTotal);
-	if(_playerTotal > 21){
+	HitOrStand(totalValue(_playersHand));
+	if(totalValue(_playersHand) > 21){
 	    System.out.println("Player bust.");
 	    return false; //false if player bust
 	}
-	while(_dealerTotal < _playerTotal){
-	    _dealerTotal += drawCard();
+	while(totalValue(_dealersHand) < totalValue(_playersHand)){
+	    _dealersHand.add(drawCard());
 	    System.out.print("Dealer hits: ");
-	    System.out.println(_dealerTotal);
-	    if (_dealerTotal > 21){
+	    System.out.println(totalValue(_dealersHand));
+	    if (totalValue(_dealersHand) > 21){
 		System.out.println("Dealer bust.");
 		return true;
 	    }
@@ -140,8 +152,8 @@ public class Blackjack{
 	return false;
     }
 
-    public int HitOrStand(int i){ //simulates player's turn
-	int x = i;
+    public void HitOrStand(int i){ //simulates player's turn
+	//int x = i;
 
 	if(_countCards)
 	    printDealtCards();	
@@ -150,17 +162,18 @@ public class Blackjack{
 	System.out.println("2: Stand");
 	
 	if(Keyboard.readInt() == 1){
-	    x += drawCard();
-	    System.out.println(x);
-	    if(x > 21){
-		return x;
+	    _playersHand.add(drawCard());
+	    System.out.print("Current value of your hand:");
+	    System.out.println(totalValue(_playersHand));
+	    if(totalValue(_playersHand) > 21){
+		return;
 	    }
 	    else{
-		return HitOrStand(x);
+		HitOrStand(totalValue(_playersHand));
 	    }
 	}
 	else{
-	    return x;
+	    return ;
 	}
     }	
 }

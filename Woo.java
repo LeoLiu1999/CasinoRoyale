@@ -1,6 +1,17 @@
 import cs1.Keyboard;
 
 public class Woo{
+    //HELPERS----------------------------------------------------------------------------------
+    public static boolean checkInString(String[] s, String x){
+	for (String p:s){
+	    if (p.equals(x)){
+		return true;
+	    }
+	}
+	return false;
+    }
+    //-----------------------------------------------------------------------------------------
+
     public static void main(String[] args){
 
 	System.out.print("Welcome to the Casino Royale! What is your name? ");
@@ -8,6 +19,7 @@ public class Woo{
 	System.out.println();
 	System.out.print("Please enter your current balance, " + playerName + ": $");
 	double playerBal = Keyboard.readDouble();
+        
 
 	Player player = new Player(playerName, playerBal);
 
@@ -40,7 +52,7 @@ public class Woo{
 		if (choice.equals("1")){
 		    Slots machine = new Slots();
 		
-		    System.out.print("Welcome to our state-of-the-art Slot Machine! How much would you like to bet? ");
+		    System.out.print("Welcome to our state-of-the-art Slot Machine! How much would you like to bet? $");
 		    double numBet = Keyboard.readDouble();
 		    while (numBet <= 0 || numBet > player.checkBal()){
 			System.out.println("I'm sorry, that value is invalid, try again.");
@@ -76,7 +88,7 @@ public class Woo{
 		    //double bet = setBet();
 		    int numOrColor = 0;
 		    while (numOrColor != 2 && numOrColor != 1){
-			System.out.println("Would you like to bet on number(1) or color(2)?");
+			System.out.print("Would you like to bet on number(1) or color(2)? ");
 			numOrColor = Keyboard.readInt();
 		    }
 		    double betAmt;
@@ -89,15 +101,20 @@ public class Woo{
 		    //User bets on a NUMBER
 		    //==================================
 		    String USERNUMBET = "";
+		    String[] numbers = {"00","0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36"};
 		    if (numOrColor == 1){
-			System.out.println("Which number would you like to bet on? 00, 0, 1, 2, ..., 36" );
+			System.out.print("Which number would you like to bet on? 00, 0, 1, 2, ..., 36: " );
 			USERNUMBET = Keyboard.readString();
+			while (!checkInString(numbers,USERNUMBET)){
+			    System.out.print("That input was invalid, please try again: ");
+			    USERNUMBET = Keyboard.readString();
+			}
 			betAmt = 0.00;
-			while (!(betAmt > 0)){
-			    System.out.println("Please input how much money you would like to bet");
+			while (!(betAmt > 0 && betAmt <= player.checkBal())){
+			    System.out.print("Please input how much money you would like to bet: $");
 			    betAmt = Keyboard.readDouble();
 			}
-			if (Roulette.winNumber( USERNUMBET)){
+			if (Roulette.winNumber(USERNUMBET)){
 
 			    System.out.println("You won " + betAmt * 35 + " dollars!" );
 			    player.win(betAmt * 34);
@@ -122,7 +139,7 @@ public class Woo{
 
 			betAmt = 0.00;
 			while (!(betAmt > 0)){
-			    System.out.println("Please input how much money you would like to bet");
+			    System.out.print("Please input how much money you would like to bet: $");
 			    betAmt = Keyboard.readDouble();
 			}
 			
@@ -132,7 +149,7 @@ public class Woo{
 				System.out.println("You won " + betAmt * 17 + " dollars!");
 				player.win(betAmt * 17);
 			    } else {
-				System.out.println("You won " + betAmt + " dollars!");
+				System.out.println("You won " + betAmt * 2 + " dollars!");
 				player.win(betAmt);
 			    }
 			} else {
@@ -170,7 +187,7 @@ public class Woo{
 		    return    ;
 		}
 	    
-		System.out.print("Would you like to play again? Yes(1) No(2) ");
+		System.out.print("Would you like to play again? Yes(1) No(2): ");
 		String input = Keyboard.readString();
 
 		while((!input.equals("1")) && (!input.equals("2"))){

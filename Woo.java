@@ -19,7 +19,16 @@ public class Woo{
 	System.out.println();
 	System.out.print("Please enter your current balance, " + playerName + ": $");
 	double playerBal = Keyboard.readDouble();
-        
+        while (playerBal <= 0 || Double.isNaN(playerBal)){
+	    if (Double.isNaN(playerBal)){
+		System.out.print("Please enter a numerical value: $");
+		playerBal = Keyboard.readDouble();
+	    }
+	    if (playerBal <= 0){
+		System.out.print("Please enter a value greater than 0: $");
+		playerBal = Keyboard.readDouble();
+	    }
+	}
 
 	Player player = new Player(playerName, playerBal);
 
@@ -55,7 +64,11 @@ public class Woo{
 		    System.out.print("Welcome to our state-of-the-art Slot Machine! How much would you like to bet? $");
 		    double numBet = Keyboard.readDouble();
 
-		    while (numBet > player.checkBal() || numBet <= 0){
+		    while (numBet > player.checkBal() || numBet <= 0 || Double.isNaN(numBet)){
+			if (Double.isNaN(numBet)){
+			    System.out.print("Please enter a numerical value: $");
+			    numBet = Keyboard.readDouble();
+			}
 			if (numBet > player.checkBal()){
 			    System.out.print("Please enter a value that is less than or equal to your balance: $");
 			    numBet = Keyboard.readDouble();
@@ -112,7 +125,11 @@ public class Woo{
 			}
 			System.out.print("Please enter how much you would like to bet: $");
 			double numBet = Keyboard.readDouble();
-			while (numBet > player.checkBal() || numBet <= 0){
+			while (numBet > player.checkBal() || numBet <= 0 || Double.isNaN(numBet)){
+			    if (Double.isNaN(numBet)){
+				System.out.print("Please enter a numerical value: $");
+				numBet = Keyboard.readDouble();
+			    }
 			    if (numBet > player.checkBal()){
 				System.out.print("Please enter a value that is less than or equal to your balance: $");
 				numBet = Keyboard.readDouble();
@@ -147,7 +164,11 @@ public class Woo{
 
 			System.out.print("Please enter how much you would like to bet: $");
 			double numBet = Keyboard.readDouble();
-		        while (numBet > player.checkBal() || numBet <= 0){
+		        while (numBet > player.checkBal() || numBet <= 0 || Double.isNaN(numBet)){
+			    if (Double.isNaN(numBet)){
+				System.out.print("Please enter a numerical value: $");
+				numBet = Keyboard.readDouble();
+			    }
 			    if (numBet > player.checkBal()){
 				System.out.print("Please enter a value that is less than or equal to your balance: $");
 				numBet = Keyboard.readDouble();

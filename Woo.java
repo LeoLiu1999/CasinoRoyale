@@ -54,9 +54,16 @@ public class Woo{
 		
 		    System.out.print("Welcome to our state-of-the-art Slot Machine! How much would you like to bet? $");
 		    double numBet = Keyboard.readDouble();
-		    while (numBet <= 0 || numBet > player.checkBal()){
-			System.out.println("I'm sorry, that value is invalid, try again.");
-			numBet = Keyboard.readDouble();
+
+		    while (numBet > player.checkBal() || numBet <= 0){
+			if (numBet > player.checkBal()){
+			    System.out.print("Please enter a value that is less than or equal to your balance: $");
+			    numBet = Keyboard.readDouble();
+			}
+			if (numBet <= 0){
+			    System.out.print("Please enter a value above 0: $");
+			    numBet = Keyboard.readDouble();
+			}
 		    }
 	
 		    machine.spin();
@@ -91,12 +98,6 @@ public class Woo{
 			System.out.print("Would you like to bet on number(1) or color(2)? ");
 			numOrColor = Keyboard.readInt();
 		    }
-		    double betAmt;
-		    //while (!(betAmt > 0)){
-		    //	System.out.print("Please input how much money you would like to bet: ");
-		    //	betAmt = Keyboard.readDouble();
-		    //	System.out.println();
-		    //}
 
 		    //User bets on a NUMBER
 		    //==================================
@@ -109,18 +110,25 @@ public class Woo{
 			    System.out.print("That input was invalid, please try again: ");
 			    USERNUMBET = Keyboard.readString();
 			}
-			betAmt = 0.00;
-			while (!(betAmt > 0 && betAmt <= player.checkBal())){
-			    System.out.print("Please input how much money you would like to bet: $");
-			    betAmt = Keyboard.readDouble();
+			System.out.print("Please enter how much you would like to bet: $");
+			double numBet = Keyboard.readDouble();
+			while (numBet > player.checkBal() || numBet <= 0){
+			    if (numBet > player.checkBal()){
+				System.out.print("Please enter a value that is less than or equal to your balance: $");
+				numBet = Keyboard.readDouble();
+			    }
+			    if (numBet <= 0){
+				System.out.print("Please enter a value above 0: $");
+				numBet = Keyboard.readDouble();
+			    }
 			}
 			if (Roulette.winNumber(USERNUMBET)){
 
-			    System.out.println("You won " + betAmt * 35 + " dollars!" );
-			    player.win(betAmt * 34);
+			    System.out.println("You won " + numBet * 35 + " dollars!" );
+			    player.win(numBet * 34);
 			}
 			else {
-			    player.lose(betAmt);
+			    player.lose(numBet);
 			}
 		    }
 
@@ -129,7 +137,7 @@ public class Woo{
 		    String USERCOLORBET = "";
 		    if (numOrColor == 2){
 			
-			System.out.println("Would you like to bet on red(r), black(b), or green(g)");
+			System.out.print("Would you like to bet on red(r), black(b), or green(g)? ");
 			USERCOLORBET = Keyboard.readString();
 
 			while((!USERCOLORBET.equals("r")) && (!USERCOLORBET.equals("b")) && (!USERCOLORBET.equals("g"))){
@@ -137,23 +145,31 @@ public class Woo{
 			    USERCOLORBET = Keyboard.readString();
 			}
 
-			betAmt = 0.00;
-			while (!(betAmt > 0)){
-			    System.out.print("Please input how much money you would like to bet: $");
-			    betAmt = Keyboard.readDouble();
+			System.out.print("Please enter how much you would like to bet: $");
+			double numBet = Keyboard.readDouble();
+		        while (numBet > player.checkBal() || numBet <= 0){
+			    if (numBet > player.checkBal()){
+				System.out.print("Please enter a value that is less than or equal to your balance: $");
+				numBet = Keyboard.readDouble();
+			    }
+			    if (numBet <= 0){
+				System.out.print("Please enter a value above 0: $");
+				numBet = Keyboard.readDouble();
+			    }
 			}
 			
+			
 			if (Roulette.winColor(USERCOLORBET)){
-			    player.win(betAmt);
+			    player.win(numBet);
 			    if(USERCOLORBET.equals("g")){
-				System.out.println("You won " + betAmt * 17 + " dollars!");
-				player.win(betAmt * 17);
+				System.out.println("You won " + numBet * 17 + " dollars!");
+				player.win(numBet * 17);
 			    } else {
-				System.out.println("You won " + betAmt * 2 + " dollars!");
-				player.win(betAmt);
+				System.out.println("You won " + numBet * 2 + " dollars!");
+				player.win(numBet);
 			    }
 			} else {
-			    player.lose(betAmt);
+			    player.lose(numBet);
 			}
 		    }
 		}

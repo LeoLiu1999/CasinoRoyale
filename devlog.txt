@@ -85,3 +85,8 @@ Andrew :: Coding on Blackjack.java's card counting function started.
 2017 - 01 - 20
 --------------------------------------------------------------
 Andrew :: Improved terminal output in Blackjack.java for communication with user. Card counting is functional but risk of being caught and thrown out of casino has yet to be coded.
+==============================================================
+
+2017 - 01 - 22
+--------------------------------------------------------------
+Andrew :: Code blocks for checking if a bet makes sense replaced with a helper function. Player.win() and .lose() print new balance. Blackjack checks for valid bets. Accidentally all committed under the same message.

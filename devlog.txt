@@ -74,6 +74,7 @@ Leo :: Added additional functionality in Woo.java, option to play again, leave t
 
 2017 - 01 - 18
 --------------------------------------------------------------
+Michael :: Made minor text changes in Woo, such that it looks more appealing
 Leo :: Made Woo more userproof and rejects invalid inputs, and adjusted payout. Win and loss are now being tracked in Roulette.
 ==============================================================
 
@@ -84,6 +85,7 @@ Andrew :: Coding on Blackjack.java's card counting function started.
 
 2017 - 01 - 20
 --------------------------------------------------------------
+Michael :: Prevented the user from inputting letter values when asked for numerical ones (such as when inputting bets)
 Andrew :: Improved terminal output in Blackjack.java for communication with user. Card counting is functional but risk of being caught and thrown out of casino has yet to be coded.
 ==============================================================
 

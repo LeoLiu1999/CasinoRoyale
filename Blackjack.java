@@ -127,7 +127,12 @@ public class Blackjack{
 	//else{
 	//    _bet = Keyboard.readDouble();
 	//}
-	_bet = Keyboard.readDouble();
+	Double bet = Keyboard.readDouble(); 
+	while (bet.equals(Double.NaN)){ //prevents user from entering non-numbers
+	    System.out.print("I'm sorry, that value is invalid. Please try again: $");
+	    bet = Keyboard.readDouble();
+	}
+	_bet = bet;
 	_playersHand.add( drawCard() );
 	_playersHand.add( drawCard() );
 	System.out.println("You are dealt two cards...");

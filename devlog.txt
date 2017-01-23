@@ -97,11 +97,6 @@ Andrew :: Improved terminal output in Blackjack.java for communication with user
 <<<<<<< HEAD
 
 2017 - 01 - 22
-Michael :: Added comments to Woo
-=======
-==============================================================
-
-2017 - 01 - 22
---------------------------------------------------------------
+Michael :: Added comments to Woo, added uml.pdf, added flow.pdf, updated README to include Roulette and Slots
 Andrew :: Code blocks for checking if a bet makes sense replaced with a helper function. Player.win() and .lose() print new balance. Blackjack checks for valid bets. In Blackjack.java, user now has option to make aces high or low, and the whole hand is printed out in text instead of just printing their total value.
->>>>>>> 6b7da95eb4b57d91d5ef3d7ca0dee1e784c17b64
+

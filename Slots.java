@@ -1,6 +1,6 @@
 import cs1.Keyboard;
 
-public class Slots extends Game{
+public class Slots{
 
     private String[] slot1 = {"peach","pear","cherry","grapefruit","orange","pomegranate"};
     private String[] slot2 = {"peach","pear","cherry","grapefruit","orange","pomegranate"};

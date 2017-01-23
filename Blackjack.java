@@ -13,6 +13,7 @@ public class Blackjack{
     private String[] _deck = new String[52];
     private boolean _countCards = false;
     private int[] _dealtCards = new int[nums.length];
+    private String _aces = "high";
     //private int _dealtCardsIndex = 0;
 
     public Blackjack(double x){
@@ -72,11 +73,26 @@ public class Blackjack{
 	}
     }
     
-    public int totalValue(ArrayList<Integer> a){
-	int ret = 0;
-	for(int i:a)
-	    ret += i;
-	return ret;
+    public int totalValue(ArrayList<Integer> hand){
+	int lowHand = 0;
+	int highHand = 0;
+	for(int i:hand){
+	    if(i == 11){
+	        lowHand += 1; //Ace has a value of 1 if low
+		highHand += i;
+	    }
+	    else{
+		lowHand += i;
+		highHand += i;
+	    }
+	}
+        if(_aces.equals("low"))
+	    return lowHand;
+	//if a high ace were to bust the hand, use hand with low ace (unless only high aces in play)
+	else if(_aces.equals("goBothWays") && highHand > 21)
+	    return lowHand;
+	else
+	    return highHand;
     }
 
     public void countCards(){
@@ -115,11 +131,56 @@ public class Blackjack{
 	    }
 	}
     }
+    public void printHand(ArrayList<Integer> hand){
+	String s = "";
+	for(int i:hand){
+	    if(i == 1)
+		s += "Ace,";
+	    else if(i == 11)
+		s += "Jack,";
+	    else if(i == 12)
+		s += "Queen,";
+	    else if(i == 13)
+		s += "King,";
+	    else
+		s += i + ",";
+	}
+	System.out.print(s.substring(0,s.length() - 1));
+    }
+    
     public boolean Play(){
 	createDeck();
 	System.out.println("You sit down at the blackjack table");
 	System.out.print("Would you like to count cards? You risk getting caught...  Y or N: ");
-	countCards();		
+	countCards();
+	
+	System.out.println("Aces high or low?");
+	System.out.println("\t(1)High");
+	System.out.println("\t(2)Low");
+	System.out.println("\t(3)Go both ways");
+	System.out.print("Choice:");
+
+	//Didn't use Keyboard.readInt() in case user inputted a string
+	String a = Keyboard.readString();
+	while(true){
+	    if(a.equals("1")){
+		_aces = "high";
+		break;
+	    }
+	    else if(a.equals("2")){
+		_aces = "low";
+		break;
+	    }
+	    else if(a.equals("3")){
+		_aces = "goBothWays";
+		break;
+	    }
+	    else{
+		System.out.print("I didn't quite catch that. Make a valid choice:");
+		a = Keyboard.readString();
+	    }
+	}
+    
 	System.out.print("Place your bet:");
 	double num = Keyboard.readDouble();
 	while (num > _bal || num <= 0 || Double.isNaN(num)){
@@ -138,10 +199,11 @@ public class Blackjack{
        	}
 	
 	_bet = num;
-	_playersHand.add( drawCard() );
+	_playersHand.add( drawCard() );//Game starts with two cards
 	_playersHand.add( drawCard() );
 	System.out.println("You are dealt two cards...");
-	System.out.print("Current value of your hand:");
+	printHand(_playersHand);
+	System.out.print("\tCurrent value of your hand:");
 	System.out.println(totalValue(_playersHand));
 
 	HitOrStand(totalValue(_playersHand));
@@ -173,7 +235,9 @@ public class Blackjack{
 	
 	if(Keyboard.readInt() == 1){
 	    _playersHand.add(drawCard());
-	    System.out.print("Current value of your hand:");
+	    //makeAceLow(_playersHand);
+	    printHand(_playersHand);
+	    System.out.print("\tCurrent value of your hand:");
 	    System.out.println(totalValue(_playersHand));
 	    if(totalValue(_playersHand) > 21){
 		return;

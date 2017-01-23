@@ -14,15 +14,16 @@ public class Blackjack{
     //private boolean _countCards = false;
     //private int[] _dealtCards = new int[nums.length];
     private String _aces = "high";
-    //private int _dealtCardsIndex = 0;
+    private Player _player;
 
-    public Blackjack(double x){
-	_bal = x;
+
+    public Blackjack(Player player){
+	_bal = player.checkBal();
     }
 
-    public void setBal(double x){
-	_bal = x;
-    }
+    // public void setBal(double x){
+    // 	_bal = x;
+    // }
 
     public double getBet(){
 	return _bet;
@@ -66,7 +67,7 @@ public class Blackjack{
 	    return 10;
 	}
 	else if(i == 1){
-	    return 11;
+	    return 1;
 	}
 	else{
 	    return i;
@@ -77,9 +78,9 @@ public class Blackjack{
 	int lowHand = 0;
 	int highHand = 0;
 	for(int i:hand){
-	    if(i == 11){
-	        lowHand += 1; //Ace has a value of 1 if low
-		highHand += i;
+	    if(i == 1){
+	        lowHand += i; //Ace has a value of 1 if low
+		highHand += 11;
 	    }
 	    else{
 		lowHand += i;
@@ -211,14 +212,19 @@ public class Blackjack{
 	    System.out.println("Player bust.");
 	    return false; //false if player bust
 	}
-	while(totalValue(_dealersHand) < totalValue(_playersHand)){
+	
+	String[] dealerNames = {"Leo","Andrew","Michael"};
+	Dealer dealer = new Dealer(dealerNames[(int)(Math.random() * 2)],1000000);
+	_dealersHand.add(drawCard());
+	_dealersHand.add(drawCard());	
+
+	while(dealer.playBlackjack(totalValue(_playersHand),totalValue(_dealersHand))){
 	    _dealersHand.add(drawCard());
-	    System.out.print("Dealer hits: ");
-	    System.out.println(totalValue(_dealersHand));
-	    if (totalValue(_dealersHand) > 21){
-		System.out.println("Dealer bust.");
-		return true;
-	    }
+	    System.out.println("Dealer hits: " + totalValue(_dealersHand));	    
+	}
+	if (totalValue(_dealersHand) > 21){
+	    System.out.println("Dealer bust");
+	    return true;
 	}
 	System.out.println("Dealer wins.");
 	return false;

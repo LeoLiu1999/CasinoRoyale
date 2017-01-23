@@ -176,7 +176,7 @@ public class Woo{
 		  Blackjack
 		  ============================================*/
 		if(choice.equals("3")){
-		    Blackjack bj = new Blackjack(playerBal); //Blackjack is run on the driver in the directory
+		    Blackjack bj = new Blackjack(player); //Blackjack is run on the driver in the directory
 		    if(bj.Play()){
 			player.win(bj.getBet());
 		    }

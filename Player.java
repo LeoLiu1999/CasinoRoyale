@@ -1,11 +1,13 @@
 import cs1.Keyboard;
+import java.util.ArrayList;
 
 public class Player{
 
-    private String name;
-    private double _bal;
-    private int _winStreak;
-    private int _loseStreak;
+    protected String name;
+    protected double _bal;
+    //protected ArrayList<Integer> _hand = new ArrayList<Integer>();
+    protected int _winStreak;
+    protected int _loseStreak;
 
     public Player(String newName, double newBal){
 	_winStreak = 0;
@@ -33,4 +35,7 @@ public class Player{
 	System.out.println("You lost " + x + " dollars...");
 	System.out.println("You now have " + _bal +" dollars.\n");	
     }
+    // protected void addCard(int c){
+    // 	_hand.add(c);
+    // }
 }

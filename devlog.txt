@@ -11,16 +11,21 @@ Casino Royale
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We finally managed to organize who would create which files.
+We successfully controlled user input when asked for bets (the user can no longer input non-numerical values).
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We haven't completely fleshed out the components of each class, as we did not expect such difficulty with the relatively 
 small amount of concepts we planned to implement with the UML diagram.
+Multiplayer games (such as hearts) were not added as there was no time.
+"NaN value returned" still exists when the user inputs a String when asked for a number. 
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We learned how much more complex a few simple casino games would be to code. Each game is so different from the others,
 which makes coding a template for all games next to impossible.
+The Double class exists with the same respective methods as the Integer class (parseDouble() being the most important).
+isNaN from the Double class can check if a numerical variable (int, double, etc) gets a String input.
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -28,6 +33,8 @@ We added a Player class, which will keep track of money, winning and losing stre
 in the Game class.
 We removed multiplayer games due to the additional time needed to invest in implementing one and instead focused our attention
 to making single-player games functional.
+We removed the concept of superclasses, as the games all worked too differently to implement one single class to create a template
+for all of them.
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -55,7 +62,7 @@ Andrew :: Created Blackjack.java (still incomplete)
 
 2017 - 01 - 12
 --------------------------------------------------------------
-Michael :: Updated Player.java, removed functionality of Game.java (until further notice), Updated Woo.java to accept player information
+Michael :: Updated Player.java, removed functionality of Game.java (until further notice), Updated Woo.java to accept player information, added Typetester (not used in the future)
 Leo :: Updated Woo.java to run the three games
 Andrew :: Completed Blackjack
 ==============================================================

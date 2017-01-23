@@ -12,6 +12,7 @@ public class Slots extends Game{
 	    swap(slot2, (int)(Math.random() * 6), (int)(Math.random() * 6));
 	    swap(slot3, (int)(Math.random() * 6), (int)(Math.random() * 6));
 	}
+	System.out.println(slot1[0] + "\t" + slot2[0] + "\t" + slot3[0]);
     }
 
     public boolean miniWin(){
@@ -25,7 +26,7 @@ public class Slots extends Game{
     public void lose(){
 	System.out.println("You lost...");
     }
-
+    
     public static void printJackpot(double numBet){
 	System.out.println("JACKPOT!!!\nYou won " + (10 * numBet) + " dollars!");
     }

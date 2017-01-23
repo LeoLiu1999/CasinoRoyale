@@ -8,7 +8,9 @@ public class Roulette extends Game{
 
     
     public static String spin(){
-	return _wheel[(int)(Math.random() * 38)];
+	String result =  _wheel[(int)(Math.random() * 38)];
+	System.out.println("The wheel landed on " + result + ".");
+	return result;
     }
 
     //public double getBets(){

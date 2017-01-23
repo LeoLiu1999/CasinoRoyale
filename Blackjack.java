@@ -121,18 +121,23 @@ public class Blackjack{
 	System.out.print("Would you like to count cards? You risk getting caught...  Y or N: ");
 	countCards();		
 	System.out.print("Place your bet:");
-	//if( Keyboard.readDouble() > x._bal )	{
-	//    System.out.print("Insufficient funds, place a lower bet:");
-	//}
-	//else{
-	//    _bet = Keyboard.readDouble();
-	//}
-	Double bet = Keyboard.readDouble(); 
-	while (bet.equals(Double.NaN)){ //prevents user from entering non-numbers
-	    System.out.print("I'm sorry, that value is invalid. Please try again: $");
-	    bet = Keyboard.readDouble();
-	}
-	_bet = bet;
+	double num = Keyboard.readDouble();
+	while (num > _bal || num <= 0 || Double.isNaN(num)){
+	       	if (Double.isNaN(num)){ //checks if input was "not a number"
+       		    System.out.print("Please enter a numerical value: $");
+       		    num = Keyboard.readDouble();
+       		}
+       		if (num > _bal){ //cannot bet more than you have
+       		    System.out.print("Please enter a value that is less than or equal to your balance: $");
+       		    num = Keyboard.readDouble();
+       		}
+       		if (num <= 0){ //cannot bet negative value
+       		    System.out.print("Please enter a value above 0: $");
+       		    num = Keyboard.readDouble();
+       		}
+       	}
+	
+	_bet = num;
 	_playersHand.add( drawCard() );
 	_playersHand.add( drawCard() );
 	System.out.println("You are dealt two cards...");

@@ -94,3 +94,6 @@ Andrew :: Coding on Blackjack.java's card counting function started.
 --------------------------------------------------------------
 Michael :: Prevented the user from inputting letter values when asked for numerical ones (such as when inputting bets)
 Andrew :: Improved terminal output in Blackjack.java for communication with user. Card counting is functional but risk of being caught and thrown out of casino has yet to be coded.
+
+2017 - 01 - 22
+Michael :: Added comments to Woo

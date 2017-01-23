@@ -24,7 +24,4 @@ public class Roulette extends Game{
     public static boolean winNumber(String num){
 	return (num.equals(spin().substring(1)));
     }
-    
-    public static void main(String[] args){
-    }
 }

@@ -11,8 +11,8 @@ public class Blackjack{
     private ArrayList<Integer> _playersHand = new ArrayList<Integer>();
     private ArrayList<Integer> _dealersHand = new ArrayList<Integer>(); 
     private String[] _deck = new String[52];
-    private boolean _countCards = false;
-    private int[] _dealtCards = new int[nums.length];
+    //private boolean _countCards = false;
+    //private int[] _dealtCards = new int[nums.length];
     private String _aces = "high";
     //private int _dealtCardsIndex = 0;
 
@@ -55,7 +55,7 @@ public class Blackjack{
 	    createDeck();
 	}
 	String c = _deck[0];
-	_dealtCards[Integer.parseInt(c.substring(1)) - 1] += 1;
+	//_dealtCards[Integer.parseInt(c.substring(1)) - 1] += 1;
 	String[] d = new String[_deck.length - 1];
 	for(int i = 1;i < _deck.length;i ++){
 	    d[i - 1] = _deck[i];
@@ -95,42 +95,42 @@ public class Blackjack{
 	    return highHand;
     }
 
-    public void countCards(){
-	String in = Keyboard.readString();
-	if(in.equals("Y")){
-	    _countCards = true;
-	}
-	else if(in.equals("N")){
-	    _countCards = false;
-	}
-	else{
-	    System.out.println("Invalid input. Would you like to count cards?");
-	    countCards();
-	}
-    }
+    // public void countCards(){
+    // 	String in = Keyboard.readString();
+    // 	if(in.equals("Y")){
+    // 	    _countCards = true;
+    // 	}
+    // 	else if(in.equals("N")){
+    // 	    _countCards = false;
+    // 	}
+    // 	else{
+    // 	    System.out.println("Invalid input. Would you like to count cards?");
+    // 	    countCards();
+    // 	}
+    // }
 
-    public void printDealtCards(){
-	System.out.println("Cards that have been dealt:");
-        for(int i = 0;i < _dealtCards.length;i ++){
-	    if(_dealtCards[i] > 0){
-		if(i == 0){
-		    System.out.print("Aces:" + _dealtCards[i] + "\t");
-		}
-		else if(i == 10){
-		    System.out.print("Jacks:" + _dealtCards[i] + "\t");
-		}
-		else if(i == 11){
-		    System.out.print("Queens:" + _dealtCards[i] + "\t");
-		}
-		else if(i == 12){
-		    System.out.print("Kings:" + _dealtCards[i] + "\t");
-		}
-		else{
-		    System.out.print( (i + 1) + "s:" +  _dealtCards[i] + "\t");
-		}
-	    }
-	}
-    }
+    // public void printDealtCards(){
+    // 	System.out.println("Cards that have been dealt:");
+    //     for(int i = 0;i < _dealtCards.length;i ++){
+    // 	    if(_dealtCards[i] > 0){
+    // 		if(i == 0){
+    // 		    System.out.print("Aces:" + _dealtCards[i] + "\t");
+    // 		}
+    // 		else if(i == 10){
+    // 		    System.out.print("Jacks:" + _dealtCards[i] + "\t");
+    // 		}
+    // 		else if(i == 11){
+    // 		    System.out.print("Queens:" + _dealtCards[i] + "\t");
+    // 		}
+    // 		else if(i == 12){
+    // 		    System.out.print("Kings:" + _dealtCards[i] + "\t");
+    // 		}
+    // 		else{
+    // 		    System.out.print( (i + 1) + "s:" +  _dealtCards[i] + "\t");
+    // 		}
+    // 	    }
+    // 	}
+    // }
     public void printHand(ArrayList<Integer> hand){
 	String s = "";
 	for(int i:hand){
@@ -151,8 +151,8 @@ public class Blackjack{
     public boolean Play(){
 	createDeck();
 	System.out.println("You sit down at the blackjack table");
-	System.out.print("Would you like to count cards? You risk getting caught...  Y or N: ");
-	countCards();
+	// System.out.print("Would you like to count cards? You risk getting caught...  Y or N: ");
+	// countCards();
 	
 	System.out.println("Aces high or low?");
 	System.out.println("\t(1)High");
@@ -227,8 +227,9 @@ public class Blackjack{
     public void HitOrStand(int i){ //simulates player's turn
 	//int x = i;
 
-	if(_countCards)
-	    printDealtCards();	
+	// if(_countCards)
+	//     printDealtCards();
+	
 	System.out.println("Hit or stand?");
 	System.out.println("1: Hit");
 	System.out.println("2: Stand");

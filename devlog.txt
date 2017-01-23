@@ -15,10 +15,10 @@ We successfully controlled user input when asked for bets (the user can no longe
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-We haven't completely fleshed out the components of each class, as we did not expect such difficulty with the relatively 
-small amount of concepts we planned to implement with the UML diagram.
+We haven't completely fleshed out the components of each class, as we did not expect such difficulty with the relatively small amount of concepts we planned to implement with the UML diagram.
 Multiplayer games (such as hearts) were not added as there was no time.
-"NaN value returned" still exists when the user inputs a String when asked for a number. 
+"NaN value returned" still exists when the user inputs a String when asked for a number.
+The counting cards function in Blackjack.java is rather useless since a new deck is used whenever a game is started, there are no other players, and the user can see the cards in their hand. Thus, it was commented out.
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -98,4 +98,4 @@ Andrew :: Improved terminal output in Blackjack.java for communication with user
 
 2017 - 01 - 22
 --------------------------------------------------------------
-Andrew :: Code blocks for checking if a bet makes sense replaced with a helper function. Player.win() and .lose() print new balance. Blackjack checks for valid bets. Accidentally all committed under the same message.
+Andrew :: Code blocks for checking if a bet makes sense replaced with a helper function. Player.win() and .lose() print new balance. Blackjack checks for valid bets. In Blackjack.java, user now has option to make aces high or low, and the whole hand is printed out in text instead of just printing their total value.

@@ -19,6 +19,7 @@ We haven't completely fleshed out the components of each class, as we did not ex
 Multiplayer games (such as hearts) were not added as there was no time.
 "NaN value returned" still exists when the user inputs a String when asked for a number.
 The counting cards function in Blackjack.java is rather useless since a new deck is used whenever a game is started, there are no other players, and the user can see the cards in their hand. Thus, it was commented out.
+One can still input a value that is too high for Java, thus causing the value to be registered as NaN, keeping that as the user's balance until program restart.
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

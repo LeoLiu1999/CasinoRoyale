@@ -14,7 +14,7 @@ public class Blackjack{
     //private boolean _countCards = false;
     //private int[] _dealtCards = new int[nums.length];
     private String _aces = "high";
-    private Player _player;
+    //private Player _player;
 
 
     public Blackjack(Player player){
